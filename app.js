@@ -16,6 +16,9 @@ const app = express();
 
 app.use(cors());
 
+// Serve static files from the public folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Serve static files from the .well-known folder
 app.use('/.well-known', express.static(path.join(__dirname, '.well-known')));
 
