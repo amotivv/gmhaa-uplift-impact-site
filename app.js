@@ -87,7 +87,7 @@ app.get('/', async (req, res) => {
     const result = await response.json();
   
     // Render the index.ejs template with the fetched HTML
-    res.render('partners', { html: result.html, fundraiseUpToken: process.env.FUNDRAISEUP_TOKEN, googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID });
+    res.render('about', { html: result.html, fundraiseUpToken: process.env.FUNDRAISEUP_TOKEN, googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID });
   });
 
 
