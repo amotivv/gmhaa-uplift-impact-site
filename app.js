@@ -5,6 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { Readable } from 'stream';
+import morgan from 'morgan';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -15,6 +16,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 app.use(cors());
+app.use(morgan('combined'));
 
 // Serve static files from the public folder
 app.use(express.static(path.join(__dirname, 'public')));
