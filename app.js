@@ -3,6 +3,8 @@ import fetch from 'node-fetch';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { SitemapStream, streamToPromise } from 'sitemap';
+import { Readable } from 'stream';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -22,6 +24,32 @@ app.set('view engine', 'ejs');
 
 // Set the views directory
 app.set('views', path.join(__dirname, 'views'));
+
+// Sitemap middleware
+const sitemapMiddleware = (req, res) => {
+  const sitemapStream = new SitemapStream({ hostname: 'https://gmhaa.org' });
+
+  // List your website's URLs
+  const urls = [
+    { url: '/', changefreq: 'daily', priority: 1 },
+    { url: '/about/', changefreq: 'monthly', priority: 0.8 },
+    { url: '/partners/', changefreq: 'monthly', priority: 0.8 },
+    // Add more URLs as needed
+  ];
+
+  res.setHeader('Content-Type', 'application/xml');
+
+  const readableStream = new Readable({
+    read() {
+      urls.forEach((url) => sitemapStream.write(url));
+      sitemapStream.end();
+    },
+  });
+
+  readableStream.pipe(sitemapStream).pipe(res);
+};
+
+app.get('/sitemap.xml', sitemapMiddleware);
 
 
 app.get('/', async (req, res) => {
