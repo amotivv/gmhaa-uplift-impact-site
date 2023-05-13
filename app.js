@@ -65,7 +65,7 @@ app.get('/', async (req, res) => {
     const result = await response.json();
   
     // Render the index.ejs template with the fetched HTML
-    res.render('index', { html: result.html, fundraiseUpToken: process.env.FUNDRAISEUP_TOKEN });
+    res.render('index', { html: result.html, fundraiseUpToken: process.env.FUNDRAISEUP_TOKEN, googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID });
   });
 
 
@@ -82,7 +82,7 @@ app.get('/', async (req, res) => {
     const result = await response.json();
   
     // Render the index.ejs template with the fetched HTML
-    res.render('partners', { html: result.html, fundraiseUpToken: process.env.FUNDRAISEUP_TOKEN });
+    res.render('partners', { html: result.html, fundraiseUpToken: process.env.FUNDRAISEUP_TOKEN, googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID });
   });
 
 
@@ -99,7 +99,7 @@ app.get('/', async (req, res) => {
     const result = await response.json();
   
     // Render the index.ejs template with the fetched HTML
-    res.render('partners', { html: result.html, fundraiseUpToken: process.env.FUNDRAISEUP_TOKEN });
+    res.render('partners', { html: result.html, fundraiseUpToken: process.env.FUNDRAISEUP_TOKEN, googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID });
   });
   
 
@@ -117,7 +117,7 @@ app.use(async (req, res) => {
     const result = await response.json();
   
     // Render the 404.ejs template with the fetched HTML and set the status code to 404
-    res.status(404).render('404', { html: result.html, fundraiseUpToken: process.env.FUNDRAISEUP_TOKEN });
+    res.status(404).render('404', { html: result.html, fundraiseUpToken: process.env.FUNDRAISEUP_TOKEN, googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID });
   });
   
   
