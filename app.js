@@ -39,6 +39,7 @@ const sitemapMiddleware = (req, res) => {
     { url: '/', changefreq: 'daily', priority: 1 },
     { url: '/about/', changefreq: 'monthly', priority: 0.8 },
     { url: '/partners/', changefreq: 'monthly', priority: 0.8 },
+    { url: '/fathers-day-2023/', changefreq: 'monthly', priority: 0.8 },
     // Add more URLs as needed
   ];
 
@@ -100,6 +101,23 @@ app.get('/', async (req, res) => {
           },          
       }
     );
+
+  
+    app.get('/fathers-day-2023', async (req, res) => {
+      const response = await fetch(
+        'https://codegen.plasmic.app/api/v1/loader/html/published/' + process.env.PLASMIC_PROJECT_ID + '/FathersDay2023Campaign?hydrate=1&embedHydrate=1&prepass=1',
+        {
+          headers: {
+              'x-plasmic-api-project-tokens': process.env.PLASMIC_API_PROJECT_TOKENS,
+            },          
+        }
+      );
+    
+      const result = await response.json();
+    
+      // Render the index.ejs template with the fetched HTML
+      res.render('about', { html: result.html, fundraiseUpToken: process.env.FUNDRAISEUP_TOKEN, googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID });
+    });
   
     const result = await response.json();
   

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= googleAnalyticsId %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '<%= googleAnalyticsId %>');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>Father's Day 2023 Campaign - Georgia Mental Health Access Alliance - Uplift Impact</title>
+
+  <meta name="description" content="Our mission is to promote mental health resilience through financial support and easy access to qualified counseling services." />
+  <meta name="author" content="Jason Smith" />
+
+  <!-- Twitter tags -->
+  <meta name="twitter:title" content="Georgia Mental Health Access Alliance - Uplift Impact" />
+  <meta name="twitter:description" content="Our mission is to promote mental health resilience through financial support and easy access to qualified counseling services." />
+  <meta name="twitter:site" content="@gmhaa_org" />
+  <meta name="twitter:creator" content="@gmhaa_org" />
+  <meta property="twitter:image" content="https://storage.googleapis.com/amotivv-public/meta-img-1.png" />
+  <meta property="twitter:image:width" content="1376" />
+  <meta property="twitter:image:height" content="864" />
+
+  <!-- Open Graph / Facebook tags-->
+  <meta name="og:title" content="Georgia Mental Health Access Alliance - Uplift Impact" />
+  <meta name="og:description" content="Our mission is to promote mental health resilience through financial support and easy access to qualified counseling services." />
+  <meta property="og:url" content="https://gmhaa.org/fathers-day-2023" />
+  <meta property="og:site_name" content="Georgia Mental Health Access Alliance" />
+  <meta property="og:image" content="https://storage.googleapis.com/amotivv-public/meta-img-1.png" />
+  <meta property="og:image:width" content="1376" />
+  <meta property="og:image:height" content="864" />
+
+  <!-- Fundraise Up: the new standard for online giving -->
+  <script>(function(w,d,s,n,a){if(!w[n]){var l='call,catch,on,once,set,then,track'
+  .split(','),i,o=function(n){return'function'==typeof n?o.l.push([arguments])&&o
+  :function(){return o.l.push([n,arguments])&&o}},t=d.getElementsByTagName(s)[0],
+  j=d.createElement(s);j.async=!0;j.src='https://cdn.fundraiseup.com/widget/'+a;
+  t.parentNode.insertBefore(j,t);o.s=Date.now();o.v=4;o.h=w.location.href;o.l=[];
+  for(i=0;i<7;i++)o[l[i]]=o(l[i]);w[n]=o}
+  })(window,document,'script','FundraiseUp','<%= fundraiseUpToken %>');</script>
+  <!-- End Fundraise Up -->
+</head>
+<body>
+  <%- html %>
+  <script src="https://codegen.plasmic.app/static/js/loader-hydrate.js"></script>
+</body>
+</html>
